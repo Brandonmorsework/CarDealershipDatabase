@@ -34,7 +34,7 @@ contract_id INT AUTO_INCREMENT PRIMARY KEY,
 vin VARCHAR(17) NOT NULL,
 lease_start date NOT NULL,
 lease_end date NOT NULL,
-monthly_payment decimal(10, 2),
+monthly_payment decimal(10, 2) NOT NULL,
 FOREIGN KEY (vin) REFERENCES vehicles(vin)
 );
 
@@ -42,7 +42,7 @@ CREATE TABLE sales_contracts(
 contract_id INT AUTO_INCREMENT PRIMARY KEY,
 vin VARCHAR(17) NOT NULL,
 sale_date date NOT NULL,
-price DECIMAL(10, 2),
+price DECIMAL(10, 2) NOT NULL,
 FOREIGN KEY (vin) REFERENCES vehicles(vin)
 );
 
@@ -55,25 +55,29 @@ FOREIGN KEY (vin) REFERENCES vehicles(vin)
 
 INSERT INTO dealerships (dealership_id, name, address, phone)
 VALUES
-('98932', 'Jackson', '130 Blue Street', '235-123-1232'),
-('18242', 'Eddie', '154 Greene Street', '434-176-4366');
+(98932, 'Jackson', '130 Blue Street', '235-123-1232');
+
 
 INSERT INTO vehicles (vin, make, model, year, sold, color, vehicleType, odometer, price)
 VALUES
-('78873', 'Audi', 'A3', '2023', 'true', 'blue', 'car', '23546', '24599.00'),
-('32543', 'Subaru', 'Ascent', '2021', 'false', 'red', 'van', '65431', '18599.99');
+('78873', 'Audi', 'A4', '2023', true, 'blue', 'car', 23546, 24599.00),
+('32543', 'Subaru', 'Ascent', '2021', true, 'red', 'van', 65431, 18599.99),
+('20202', 'Toyota', 'C7', '2023', false, 'green', 'car', 51546, 5459.20),
+('56565', 'Subaru', 'A5', '2021', false, 'purple', 'truck', 78467, 38199.99);
 
 INSERT INTO lease_contracts (contract_id, vin, lease_start, lease_end, monthly_payment)
 VALUES
-('90909', '78873', '01-04-2024', '01-04-2025', '950.00'),
-('31313', '32543', '04-01-2023', '04-01-2024', '780.59');
+(7070, '56565', '2024-04-01', '2025-04-01', 950.00),
+(8282, '20202', '2022-01-02', '2023-04-02', 780.59);
 
 INSERT INTO sales_contracts (contract_id, vin, sale_date, price)
 VALUES
-('90909', '78873', '01-04-2024', '950.00'),
-('31313', '32543', '04-01-2023', '780.59');
+(9090, '78873', '2019-04-01', 950.00),
+(3131, '32543', '2021-01-04', 780.59);
 
 INSERT INTO inventory (dealership_id, vin)
 VALUES
-('98932', '90909'),
-('18242', '31313');
+(98932, '78873'),
+(98932, '56565'),
+(98932, '20202'),
+(98932, '32543');
