@@ -53,7 +53,27 @@ FOREIGN KEY (dealership_id) REFERENCES dealerships(dealership_id),
 FOREIGN KEY (vin) REFERENCES vehicles(vin)
 );
 
+INSERT INTO dealerships (dealership_id, name, address, phone)
+VALUES
+(   ),
+(   );
 
+INSERT INTO vehicles (vin, make, model, year, sold, color, vehicleType, odometer, price)
+VALUES
+(   ),
+(   );
 
+INSERT INTO lease_contracts (contract_id, vin, lease_start, lease_end, monthly_payment)
+VALUES
+(   ),
+(   );
 
+INSERT INTO sales_contracts (contract_id, vin, sale_date, price)
+VALUES
+(   ),
+(   );
 
+INSERT INTO inventory (dealership_id, vin)
+VALUES
+(   ),
+(   );
